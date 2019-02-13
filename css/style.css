@@ -1,13 +1,31 @@
 /* For mobile devices: */
 /* ------------------- */
 /* */
-body {}
+body {
+    background-color: #ECECEC;
+}
+/** /
+SUMMARY BLOCK
+/**/
 div.summary-block {}
 div.summary-block h1 {}
 div.summary-block p {}
 div.summary-block p a {}
+div.summary-block h2 {
+    background-color: #5d5d5d;
+    color: white;
+    padding: 5px 5px 8px;
+    margin: 0;
+}
+div.summary-block h2 i {
+    float: right;
+}
 div.ciphers-desc {}
-div.cipher-desc {}
+div.cipher-desc {
+    margin-top: 15px;
+    border: 3px solid #5d5d5d;
+    border-radius: 5px;
+}
 div.cipher-desc h2 {}
 div.cipher-desc p {}
 div.block {}
@@ -19,21 +37,156 @@ div.input-block {}
 div.input-block span {}
 div.input-block input {}
 div.input-block textarea {}
+/** /
+1st BLOCK
+/**/
 @media only screen and (min-width: 667px) {
     /* For iPhone 6+++ landscape mode: */
+    /** /
+    SUMMARY BLOCK
+    /**/
+    div.summary-block {}
+    div.summary-block h1 {}
+    div.summary-block p {}
+    div.summary-block p a {}
+    div.summary-block h2 {}
+    div.summary-block h2 i {}
+    div.ciphers-desc {}
+    div.cipher-desc {}
+    div.cipher-desc h2 {}
+    div.cipher-desc p {}
+    div.block {}
+    div.settings {}
+    div.settings select {}
+    div.settings button {}
+    div.settings button.button-lg {}
+    div.input-block {}
+    div.input-block span {}
+    div.input-block input {}
+    div.input-block textarea {}
 }
 @media only screen and (min-width: 768px) {
     /* For tablets: */
+    /** /
+    SUMMARY BLOCK
+    /**/
+    div.summary-block {}
+    div.summary-block h1 {}
+    div.summary-block p {}
+    div.summary-block p a {}
+    div.summary-block h2 {}
+    div.summary-block h2 i {}
+    div.ciphers-desc {}
+    div.cipher-desc {}
+    div.cipher-desc h2 {}
+    div.cipher-desc p {}
+    div.block {}
+    div.settings {}
+    div.settings select {}
+    div.settings button {}
+    div.settings button.button-lg {}
+    div.input-block {}
+    div.input-block span {}
+    div.input-block input {}
+    div.input-block textarea {}
 }
 @media only screen and (min-width: 1024px) {
     /* iPad Pros:  */
+    /** /
+    SUMMARY BLOCK
+    /**/
+    div.summary-block {}
+    div.summary-block h1 {}
+    div.summary-block p {}
+    div.summary-block p a {}
+    div.summary-block h2 {}
+    div.summary-block h2 i {}
+    div.ciphers-desc {}
+    div.cipher-desc {}
+    div.cipher-desc h2 {}
+    div.cipher-desc p {}
+    div.block {}
+    div.settings {}
+    div.settings select {}
+    div.settings button {}
+    div.settings button.button-lg {}
+    div.input-block {}
+    div.input-block span {}
+    div.input-block input {}
+    div.input-block textarea {}
 }
 @media only screen and (min-width: 1366px) {
     /* Desktop screens and iPad pro sideways: */
+    /** /
+    SUMMARY BLOCK
+    /**/
+    div.summary-block {}
+    div.summary-block h1 {}
+    div.summary-block p {}
+    div.summary-block p a {}
+    div.summary-block h2 {}
+    div.summary-block h2 i {}
+    div.ciphers-desc {}
+    div.cipher-desc {}
+    div.cipher-desc h2 {}
+    div.cipher-desc p {}
+    div.block {}
+    div.settings {}
+    div.settings select {}
+    div.settings button {}
+    div.settings button.button-lg {}
+    div.input-block {}
+    div.input-block span {}
+    div.input-block input {}
+    div.input-block textarea {}
 }
 @media only screen and (min-width: 1500px) {
     /* Desktop screens 1500px - 1740px : */
+    /** /
+    SUMMARY BLOCK
+    /**/
+    div.summary-block {}
+    div.summary-block h1 {}
+    div.summary-block p {}
+    div.summary-block p a {}
+    div.summary-block h2 {}
+    div.summary-block h2 i {}
+    div.ciphers-desc {}
+    div.cipher-desc {}
+    div.cipher-desc h2 {}
+    div.cipher-desc p {}
+    div.block {}
+    div.settings {}
+    div.settings select {}
+    div.settings button {}
+    div.settings button.button-lg {}
+    div.input-block {}
+    div.input-block span {}
+    div.input-block input {}
+    div.input-block textarea {}
 }
 @media only screen and (min-width: 1740px) {
     /* Desktop screens: */
+    /** /
+    SUMMARY BLOCK
+    /**/
+    div.summary-block {}
+    div.summary-block h1 {}
+    div.summary-block p {}
+    div.summary-block p a {}
+    div.summary-block h2 {}
+    div.summary-block h2 i {}
+    div.ciphers-desc {}
+    div.cipher-desc {}
+    div.cipher-desc h2 {}
+    div.cipher-desc p {}
+    div.block {}
+    div.settings {}
+    div.settings select {}
+    div.settings button {}
+    div.settings button.button-lg {}
+    div.input-block {}
+    div.input-block span {}
+    div.input-block input {}
+    div.input-block textarea {}
 }

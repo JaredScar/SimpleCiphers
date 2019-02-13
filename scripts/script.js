@@ -16,3 +16,16 @@ function encryptCaesar() {}
 function encryptRail() {}
 function encryptVigenere() {}
 function encryptSubstitution() {}
+
+/* Summary Section Functions */
+function toggleSummary(id, icon) {
+    if($(id).is(":visible")) {
+        $(id).slideUp();
+        $(icon).removeClass("fas fa-sort-up");
+        $(icon).addClass("fas fa-sort-down");
+    } else {
+        $(id).slideDown();
+        $(icon).removeClass("fas fa-sort-down");
+        $(icon).addClass("fas fa-sort-up");
+    }
+}
