@@ -11,12 +11,6 @@ div.summary-block {}
 div.summary-block h1 {}
 div.summary-block p {}
 div.summary-block p a {}
-div.summary-block h2 {
-    background-color: #5d5d5d;
-    color: white;
-    padding: 5px 5px 8px;
-    margin: 0;
-}
 div.summary-block h2 i {
     float: right;
 }
@@ -26,8 +20,16 @@ div.cipher-desc {
     border: 3px solid #5d5d5d;
     border-radius: 5px;
 }
-div.cipher-desc h2 {}
-div.cipher-desc p {}
+div.cipher-desc h2 {
+    background-color: #5d5d5d;
+    color: white;
+    padding: 5px 5px 8px;
+    margin: 0;
+}
+div.cipher-desc p {
+    padding: 8px;
+    line-height: 22px;
+}
 div.block {}
 div.settings {}
 div.settings select {}
