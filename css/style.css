@@ -3,20 +3,31 @@
 /* */
 body {
     background-color: #ECECEC;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 /** /
 SUMMARY BLOCK
 /**/
 div.summary-block {}
 div.summary-block h1 {}
-div.summary-block p {}
-div.summary-block p a {}
+div.summary-block p {
+    line-height: 22px;
+}
+div.summary-block p a {
+    text-decoration: underline;
+    color: #3a3a3a;
+    display: block;
+    text-align: right;
+    margin-right: 20px;
+}
 div.summary-block h2 i {
     float: right;
 }
 div.ciphers-desc {}
 div.cipher-desc {
-    margin-top: 15px;
+    margin-top: 7px;
+    margin-bottom: 7px;
     border: 3px solid #5d5d5d;
     border-radius: 5px;
 }
@@ -30,15 +41,44 @@ div.cipher-desc p {
     padding: 8px;
     line-height: 22px;
 }
+
 div.block {}
-div.settings {}
-div.settings select {}
-div.settings button {}
-div.settings button.button-lg {}
+div.settings {
+    text-align: center;
+}
+div.settings select {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+}
+div.settings button {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 150px;
+}
+div.settings button.button-lg {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
 div.input-block {}
 div.input-block span {}
-div.input-block input {}
-div.input-block textarea {}
+div.input-block input {
+    width: 100%;
+}
+div.input-block textarea {
+    resize: none;
+    width: 100%;
+    height: 100px;
+}
+div.input-block input, div.input-block textarea {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
 /** /
 1st BLOCK
 /**/
@@ -51,7 +91,6 @@ div.input-block textarea {}
     div.summary-block h1 {}
     div.summary-block p {}
     div.summary-block p a {}
-    div.summary-block h2 {}
     div.summary-block h2 i {}
     div.ciphers-desc {}
     div.cipher-desc {}
@@ -76,7 +115,6 @@ div.input-block textarea {}
     div.summary-block h1 {}
     div.summary-block p {}
     div.summary-block p a {}
-    div.summary-block h2 {}
     div.summary-block h2 i {}
     div.ciphers-desc {}
     div.cipher-desc {}
@@ -101,7 +139,6 @@ div.input-block textarea {}
     div.summary-block h1 {}
     div.summary-block p {}
     div.summary-block p a {}
-    div.summary-block h2 {}
     div.summary-block h2 i {}
     div.ciphers-desc {}
     div.cipher-desc {}
@@ -126,7 +163,6 @@ div.input-block textarea {}
     div.summary-block h1 {}
     div.summary-block p {}
     div.summary-block p a {}
-    div.summary-block h2 {}
     div.summary-block h2 i {}
     div.ciphers-desc {}
     div.cipher-desc {}
@@ -151,7 +187,6 @@ div.input-block textarea {}
     div.summary-block h1 {}
     div.summary-block p {}
     div.summary-block p a {}
-    div.summary-block h2 {}
     div.summary-block h2 i {}
     div.ciphers-desc {}
     div.cipher-desc {}
@@ -176,7 +211,6 @@ div.input-block textarea {}
     div.summary-block h1 {}
     div.summary-block p {}
     div.summary-block p a {}
-    div.summary-block h2 {}
     div.summary-block h2 i {}
     div.ciphers-desc {}
     div.cipher-desc {}

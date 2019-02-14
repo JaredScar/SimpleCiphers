@@ -1,8 +1,45 @@
 /**
  * Created by user on 2/12/2019.
  */
+/** /
+ INPUT-BLOCK IDS
+ #select-cipher = <select> tag ID
+ #caesar-key
+ #rail-key
+ #vigenere-key
+ #substitution-key
+ /**/
 
-function load() {}
+/** /
+ KEY IDS
+ #num-shifts = Caesar
+ #num-rails = Rail-Fence
+ #keyword = Vigenere
+ #key = Substitution
+ /**/
+function load() {
+    var selected = $('#select-cipher option:selected').text();
+    $('#caesar-key').hide();
+    $('#rail-key').hide();
+    $('#vigenere-key').hide();
+    $('#substitution-key').hide();
+    switch (selected) {
+        case "Caesar Cipher":
+            $('#caesar-key').show();
+            break;
+        case "Rail-Fence Cipher":
+            $('#rail-key').show();
+            break;
+        case "Vigenère Cipher":
+            $('#vigenere-key').show();
+            break;
+        case "Substitution Cipher":
+            $('#substitution-key').show();
+            break;
+        default:
+            $('#caesar-key').show();
+    }
+}
 function bruteForce(cipher) {}
 
 /* Decrypt */

@@ -9,7 +9,7 @@
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body onload="load();">
 <!-- Summary -->
 <div class="summary-block">
     <h1>What is Encryption?</h1>
@@ -22,7 +22,7 @@
         to decrypt the message without possessing the key, but, for a well-designed encryption scheme, considerable computational
         resources and skills are required. An authorized recipient can easily decrypt the message with the key provided by the
         originator to recipients but not to unauthorized users.
-    <a href="https://en.wikipedia.org/wiki/Encryption" class="wiki-ref">Source</a>
+    <a href="https://en.wikipedia.org/wiki/Encryption" class="wiki-ref" target="_blank">Source</a>
     </p>
     <h1>What are Ciphers?</h1>
     <p>In cryptography, a cipher (or cypher) is an algorithm for performing encryption or decryption—a series of well-defined
@@ -38,7 +38,7 @@
         to a word or phrase. For example, "UQJHSE" could be the code for "Proceed to the following coordinates." When using
         a cipher the original information is known as plaintext, and the encrypted form as ciphertext. The ciphertext message
         contains all the information of the plaintext message, but is not in a format readable by a human or computer without the proper mechanism to decrypt it.
-    <a href="https://en.wikipedia.org/wiki/Cipher" class="wiki-ref">Source</a>
+    <a href="https://en.wikipedia.org/wiki/Cipher" class="wiki-ref" target="_blank">Source</a>
     </p>
     <!-- Ciphers included -->
     <div class="ciphers-desc">
@@ -101,7 +101,7 @@
 <!-- Encryption/Decryption -->
 <div class="block">
     <div class="settings">
-        <select>
+        <select id="select-cipher" onchange="load();">
             <option>Caesar Cipher</option>
             <option>Rail-Fence Cipher</option>
             <option>Vigenère Cipher</option>
@@ -113,7 +113,7 @@
         <!-- Caesar Key -->
         <div class="input-block" id="caesar-key">
             <span>Possible Shift:</span>
-            <input type="number" id="num-shifts" />
+            <input type="number" id="num-shifts" min="0" max="25" />
         </div>
         <!-- Rail-fence Key -->
         <div class="input-block" id="rail-key">
