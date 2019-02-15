@@ -57,6 +57,7 @@ div.settings button {
     margin-right: auto;
     height: 30px;
     width: 150px;
+    border-radius: 5px;
 }
 div.settings button.button-lg {
     width: 100%;
