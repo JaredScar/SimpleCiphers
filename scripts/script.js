@@ -108,6 +108,14 @@ function getValueFromLetter(letter) {
     }
     return "";
 }
+function getColLetterFromRowLetter(row, letter) {
+    for(var i=0; i < row.length; i++) {
+        if(row[i] === letter) {
+            return alphabet[i];
+        }
+    }
+    return null;
+}
 
 /* Decrypt */
 function decryptCaesar() {
@@ -136,17 +144,34 @@ function decryptCaesar() {
 }
 function decryptRail() {}
 function decryptVigenere() {
-    var keyword = $('#keyword').text();
+    var keyword = $('#keyword').val().toUpperCase();
     var textBox = $('#text-input');
-    var text = textBox.text();
+    var text = textBox.val().toUpperCase();
     var key = keyword;
     var keywordIndex = 0;
-    while(keyword.length < 25) {
+    while(key.length < 25) {
         if(keywordIndex >= keyword.length)
             keywordIndex = 0;
         key += keyword[keywordIndex];
+        keywordIndex++;
     }
-    // TODO
+    var rowInd = 0;
+    var msg = "";
+    for(var i=0; i < text.length; i++) {
+        if(alphabet.includes(text[i])) {
+            var row = getValueFromLetter(key[rowInd]);
+            var letter = text[i];
+            var colLetter = getColLetterFromRowLetter(row, letter);
+            msg += colLetter;
+            if (rowInd >= key.length)
+                rowInd = 0;
+            else
+                rowInd++;
+        } else {
+            msg += text[i];
+        }
+    }
+    textBox.val(msg);
 }
 function decryptSubstitution() {}
 
@@ -181,8 +206,11 @@ function encryptCaesar() {
 function encryptRail() {}
 function encryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
+    if(keyword.length <= 2) {
+        // This is too low, we select a keyword for them TODO
+    }
     var textBox = $('#text-input');
-    var text = textBox.val();
+    var text = textBox.val().toUpperCase();
     var key = keyword;
     var keywordIndex = 0;
     while(key.length < 25) {
@@ -191,7 +219,6 @@ function encryptVigenere() {
         key += keyword[keywordIndex];
         keywordIndex++;
     }
-    console.log(key); // TODO DEBUG - GET RID OF
     var message = "";
     var rowInd = 0;
     for(var i = 0; i < text.length; i++) {
@@ -200,7 +227,7 @@ function encryptVigenere() {
             var colInd = getIndexOfLetter(text[i]);
             var letter = rowString[colInd];
             message += letter;
-            if (rowInd > key.length)
+            if (rowInd >= key.length)
                 rowInd = 0;
             else
                 rowInd++;
