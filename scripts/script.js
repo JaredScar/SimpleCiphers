@@ -52,6 +52,8 @@ function load() {
             $('#decrypt-btn').attr('onclick', 'decryptCaesar();');
     }
 }
+
+/* Useful Variables */
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var genTable = {
     a: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -81,6 +83,9 @@ var genTable = {
     y: 'YZABCDEFGHIJKLMNOPQRSTUVWX',
     z: 'ZABCDEFGHIJKLMNOPQRSTUVWXY'
 };
+var map = new Map();
+
+/* BruteForce */
 function bruteForce() {}
 
 /* Useful Functions */
@@ -173,7 +178,12 @@ function decryptVigenere() {
     }
     textBox.val(msg);
 }
-function decryptSubstitution() {}
+function decryptSubstitution() {
+    var textBox = $('#text-input');
+    var text = textBox.val().toUpperCase();
+    var keyAlpha = $('#substitution-key').val().toUpperCase();
+    // TODO
+}
 
 /* Encrypt */
 function encryptCaesar() {
@@ -237,7 +247,51 @@ function encryptVigenere() {
     }
     textBox.val(message);
 }
-function encryptSubstitution() {}
+function encryptSubstitution() {
+    var textBox = $('#text-input');
+    var text = textBox.val().toUpperCase();
+    var keyAlpha = $('#key').val().toUpperCase();
+    if(keyAlpha.length !== 25) {
+        // Random alphabet generate:
+        var ind = 0;
+        while(ind < 26) {
+            var randNum = getRandomInt(0, 25);
+            var used = false;
+            for(var [key] of map.entries()) {
+                if(map.get(key) === alphabet[randNum]) {
+                    used = true;
+                    break;
+                }
+            }
+            if(!used && !map.has(alphabet[ind])) {
+                map.set(alphabet[ind], alphabet[randNum]);
+                ind++;
+            }
+        }
+        keyAlpha = "";
+        for(var [key] of map.entries()) {
+            keyAlpha += map.get(key);
+        }
+        $('#key').val(keyAlpha);
+    }
+    // Encrypt via substutition below:
+    var msg = "";
+    for(var i=0; i<25; i++) {
+        var letterVal = keyAlpha[i];
+        var letterKey = alphabet[i];
+        map.set(letterKey, letterVal);
+    }
+    for(var i=0; i < text.length; i++) {
+        if(alphabet.includes(text[i])) {
+            var letter = text[i];
+            var newLetter = map.get(letter);
+            msg += newLetter;
+        } else {
+            msg += text[i];
+        }
+    }
+    textBox.val(msg);
+}
 
 /* Summary Section Functions */
 function toggleSummary(id, icon) {
