@@ -98,6 +98,16 @@ function getIndexOfLetter(letter) {
     }
     return -1;
 }
+// Vigenere --
+function getValueFromLetter(letter) {
+    var letterInd = getIndexOfLetter(letter);
+    for(var key in genTable) {
+        if(genTable[key][0] === alphabet[letterInd]) {
+            return genTable[key];
+        }
+    }
+    return "";
+}
 
 /* Decrypt */
 function decryptCaesar() {
@@ -170,17 +180,35 @@ function encryptCaesar() {
 }
 function encryptRail() {}
 function encryptVigenere() {
-    var keyword = $('#keyword').text();
+    var keyword = $('#keyword').val().toUpperCase();
     var textBox = $('#text-input');
-    var text = textBox.text();
+    var text = textBox.val();
     var key = keyword;
     var keywordIndex = 0;
-    while(keyword.length < 25) {
+    while(key.length < 25) {
         if(keywordIndex >= keyword.length)
             keywordIndex = 0;
         key += keyword[keywordIndex];
+        keywordIndex++;
     }
-    // TODO
+    console.log(key); // TODO DEBUG - GET RID OF
+    var message = "";
+    var rowInd = 0;
+    for(var i = 0; i < text.length; i++) {
+        if(alphabet.includes(text[i])) {
+            var rowString = getValueFromLetter(key[rowInd]); // Need to get text letter and use here
+            var colInd = getIndexOfLetter(text[i]);
+            var letter = rowString[colInd];
+            message += letter;
+            if (rowInd > key.length)
+                rowInd = 0;
+            else
+                rowInd++;
+        } else {
+            message += text[i];
+        }
+    }
+    textBox.val(message);
 }
 function encryptSubstitution() {}
 
