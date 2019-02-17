@@ -147,7 +147,9 @@ function decryptCaesar() {
         textBox.val(message);
     }
 }
-function decryptRail() {}
+function decryptRail() {
+    // TODO
+}
 function decryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
     var textBox = $('#text-input');
@@ -231,29 +233,51 @@ function encryptRail() {
     map = new Map();
     var textBox = $('#text-input');
     var text = textBox.val().toUpperCase();
-    var railCount = $('#rail-key').val().toUpperCase();
-
+    var railCount = parseInt($('#num-rails').val());
+    if(railCount.length <= 0) {
+        railCount = getRandomInt(0, 100);
+        $('#num-rails').val(railCount);
+    }
     var currentRow = 0;
-    var colFilled = false;
     var textInd = 0;
     var multiD = new Array(railCount);
-    for(var col in multiD) {
-        col = new Array(text.length);
+    for(var i=0; i<multiD.length; i++) {
+        multiD[i] = new Array(text.length);
     }
+
     var currentCol = 0;
+    var goingUp = false;
+    // [row][col]
     while(textInd < text.length) {
-        if (!colFilled) {
+        if(alphabet.includes(text[textInd])) {
             multiD[currentRow][currentCol] = text[textInd];
+            currentCol++;
+            textInd++;
+            if (currentRow === railCount - 1 || goingUp) {
+                currentRow -= 1;
+                goingUp = true;
+                if (currentRow === -1) {
+                    currentRow = 1;
+                    goingUp = false;
+                }
+            } else {
+                currentRow++;
+            }
+        } else {
             textInd++;
         }
-        if (currentRow != railCount - 1) {
-            currentRow++;
-        } else {
-            currentRow = 0;
-            currentCol++;
-        }
     }
-    // TODO (while loop code may need more configuring)
+
+    var msg = "";
+    for(var i=0; i < multiD.length; i++) {
+        for(var j=0; j < multiD[i].length; j++) {
+            if(alphabet.includes(multiD[i][j])) {
+                msg += multiD[i][j];
+            }
+        }
+        msg += " ";
+    }
+    textBox.val(msg);
 }
 function encryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
