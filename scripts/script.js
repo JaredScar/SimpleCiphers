@@ -179,10 +179,24 @@ function decryptVigenere() {
     textBox.val(msg);
 }
 function decryptSubstitution() {
+    map = new Map();
     var textBox = $('#text-input');
     var text = textBox.val().toUpperCase();
-    var keyAlpha = $('#substitution-key').val().toUpperCase();
-    // TODO
+    var keyAlpha = $('#key').val().toUpperCase();
+
+    for(var i=0; i < 26; i++) {
+        map.set(keyAlpha[i], alphabet[i]);
+    }
+    var msg = "";
+    for(var i=0; i<text.length; i++) {
+        if(alphabet.includes(text[i])) {
+            var letter = map.get(text[i]);
+            msg += letter;
+        } else {
+            msg += text[i];
+        }
+    }
+    textBox.val(msg);
 }
 
 /* Encrypt */
@@ -213,7 +227,34 @@ function encryptCaesar() {
     $('#num-shifts').val(shift + 1);
     textBox.val(message);
 }
-function encryptRail() {}
+function encryptRail() {
+    map = new Map();
+    var textBox = $('#text-input');
+    var text = textBox.val().toUpperCase();
+    var railCount = $('#rail-key').val().toUpperCase();
+
+    var currentRow = 0;
+    var colFilled = false;
+    var textInd = 0;
+    var multiD = new Array(railCount);
+    for(var col in multiD) {
+        col = new Array(text.length);
+    }
+    var currentCol = 0;
+    while(textInd < text.length) {
+        if (!colFilled) {
+            multiD[currentRow][currentCol] = text[textInd];
+            textInd++;
+        }
+        if (currentRow != railCount - 1) {
+            currentRow++;
+        } else {
+            currentRow = 0;
+            currentCol++;
+        }
+    }
+    // TODO (while loop code may need more configuring)
+}
 function encryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
     if(keyword.length <= 2) {
@@ -223,7 +264,7 @@ function encryptVigenere() {
     var text = textBox.val().toUpperCase();
     var key = keyword;
     var keywordIndex = 0;
-    while(key.length < 25) {
+    while(key.length < 26) {
         if(keywordIndex >= keyword.length)
             keywordIndex = 0;
         key += keyword[keywordIndex];
@@ -251,7 +292,7 @@ function encryptSubstitution() {
     var textBox = $('#text-input');
     var text = textBox.val().toUpperCase();
     var keyAlpha = $('#key').val().toUpperCase();
-    if(keyAlpha.length !== 25) {
+    if(keyAlpha.length !== 26) {
         // Random alphabet generate:
         var ind = 0;
         while(ind < 26) {
@@ -276,7 +317,7 @@ function encryptSubstitution() {
     }
     // Encrypt via substutition below:
     var msg = "";
-    for(var i=0; i<25; i++) {
+    for(var i=0; i<26; i++) {
         var letterVal = keyAlpha[i];
         var letterKey = alphabet[i];
         map.set(letterKey, letterVal);
