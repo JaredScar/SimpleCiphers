@@ -131,7 +131,7 @@ function decryptCaesar() {
         // Alert them they need to use a shift or could bruteforce it
     } else {
         // Solve it with shift
-        shift = parseInt(shift) - 1;
+        shift = parseInt(shift);
         var message = "";
         for(var i=0; i < text.length; i++) {
             if(alphabet.includes(text[i])) {
@@ -211,7 +211,7 @@ function encryptCaesar() {
         shift = getRandomInt(0, 25);
     } else {
         // We use what they specified
-        shift = parseInt($('#num-shifts').val()) - 1;
+        shift = parseInt($('#num-shifts').val());
     }
     var message = "";
     for(var i=0; i < text.length; i++) {
@@ -226,7 +226,7 @@ function encryptCaesar() {
             message += " ";
         }
     }
-    $('#num-shifts').val(shift + 1);
+    $('#num-shifts').val(shift);
     textBox.val(message);
 }
 function encryptRail() {
