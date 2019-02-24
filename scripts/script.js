@@ -121,6 +121,16 @@ function getColLetterFromRowLetter(row, letter) {
     }
     return null;
 }
+// Rail-Fence --
+function getLengthNoSpaces(string) {
+    var msg = "";
+    for(var i=0; i < string.length; i++) {
+        if(alphabet.includes(string[i])) {
+            msg += string[i];
+        }
+    }
+    return msg.length;
+}
 
 /* Decrypt */
 function decryptCaesar() {
@@ -148,7 +158,28 @@ function decryptCaesar() {
     }
 }
 function decryptRail() {
-    // TODO
+    var textBox = $('#text-input');
+    var text = textBox.val().toUpperCase();
+    var railCount = parseInt($('#num-rails').val());
+    var multiD = new Array(railCount);
+    var spacedBy = 0;
+    var textLength = getLengthNoSpaces(text);
+    for(var i=0; i<multiD.length; i++) {
+        multiD[i] = new Array(textLength);
+    }
+    switch (railCount) {
+        case 2:
+            spacedBy = 1;
+            break;
+        case 3:
+            spacedBy = 3;
+            break;
+        default:
+            spacedBy = railCount + 1;
+    }
+    // Place the letters in the array spots:
+    // [row][col]
+    //TODO
 }
 function decryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
@@ -230,7 +261,6 @@ function encryptCaesar() {
     textBox.val(message);
 }
 function encryptRail() {
-    map = new Map();
     var textBox = $('#text-input');
     var text = textBox.val().toUpperCase();
     var railCount = parseInt($('#num-rails').val());
