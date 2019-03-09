@@ -68,6 +68,7 @@ function addToTable(key, value) {
 }
 function clearTable() {
     $('#solutions tbody').empty();
+    alt = 1;
 }
 
 /* Useful Variables */

@@ -3,6 +3,8 @@
 /* */
 body {
     background-color: #ECECEC;
+}
+div.container {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -107,6 +109,49 @@ div.solution-box table tr td {
     padding: 8px;
     text-align: center;
 }
+/** /
+FREQUENCY COUNTER
+/**/
+div.freq-box {
+    overflow-x: scroll;
+}
+div.freq-box h2 {}
+div.freq-box table {
+    text-align: center;
+}
+div.freq-box table tr th {
+    padding: 4px;
+    border: 2px solid black;
+}
+div.freq-box table tr {}
+div.freq-box table tr td {
+    padding: 4px;
+    border: 2px solid black;
+}
+/** /
+FOOTER
+/**/
+footer {
+    background-color: #E5B637;
+    border-top: 3px solid #D5AA20;
+    margin-top: 20px;
+}
+footer span {
+    display: block;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+footer span.right {
+    font-weight: bold;
+}
+footer span a {
+    color: black;
+    text-decoration: none;
+}
+footer span a:hover {
+    opacity: .6;
+}
 @media only screen and (min-width: 667px) {
     /* For iPhone 6+++ landscape mode: */
     /** /
@@ -139,6 +184,23 @@ div.solution-box table tr td {
     div.solution-box table tr {}
     div.solution-box table tr.alt {}
     div.solution-box table tr td {}
+    /** /
+    FREQUENCY COUNTER
+    /**/
+    div.freq-box {}
+    div.freq-box h2 {}
+    div.freq-box table {}
+    div.freq-box table tr th {}
+    div.freq-box table tr {}
+    div.freq-box table tr td {}
+    /** /
+    FOOTER
+    /**/
+    footer {}
+    footer span {}
+    footer span.right {}
+    footer span a {}
+    footer span a:hover {}
 }
 @media only screen and (min-width: 768px) {
     /* For tablets: */
@@ -172,6 +234,23 @@ div.solution-box table tr td {
     div.solution-box table tr {}
     div.solution-box table tr.alt {}
     div.solution-box table tr td {}
+    /** /
+    FREQUENCY COUNTER
+    /**/
+    div.freq-box {}
+    div.freq-box h2 {}
+    div.freq-box table {}
+    div.freq-box table tr th {}
+    div.freq-box table tr {}
+    div.freq-box table tr td {}
+    /** /
+    FOOTER
+    /**/
+    footer {}
+    footer span {}
+    footer span.right {}
+    footer span a {}
+    footer span a:hover {}
 }
 @media only screen and (min-width: 1024px) {
     /* iPad Pros:  */
@@ -205,6 +284,23 @@ div.solution-box table tr td {
     div.solution-box table tr {}
     div.solution-box table tr.alt {}
     div.solution-box table tr td {}
+    /** /
+    FREQUENCY COUNTER
+    /**/
+    div.freq-box {}
+    div.freq-box h2 {}
+    div.freq-box table {}
+    div.freq-box table tr th {}
+    div.freq-box table tr {}
+    div.freq-box table tr td {}
+    /** /
+    FOOTER
+    /**/
+    footer {}
+    footer span {}
+    footer span.right {}
+    footer span a {}
+    footer span a:hover {}
 }
 @media only screen and (min-width: 1366px) {
     /* Desktop screens and iPad pro sideways: */
@@ -238,6 +334,23 @@ div.solution-box table tr td {
     div.solution-box table tr {}
     div.solution-box table tr.alt {}
     div.solution-box table tr td {}
+    /** /
+    FREQUENCY COUNTER
+    /**/
+    div.freq-box {}
+    div.freq-box h2 {}
+    div.freq-box table {}
+    div.freq-box table tr th {}
+    div.freq-box table tr {}
+    div.freq-box table tr td {}
+    /** /
+    FOOTER
+    /**/
+    footer {}
+    footer span {}
+    footer span.right {}
+    footer span a {}
+    footer span a:hover {}
 }
 @media only screen and (min-width: 1500px) {
     /* Desktop screens 1500px - 1740px : */
@@ -271,6 +384,23 @@ div.solution-box table tr td {
     div.solution-box table tr {}
     div.solution-box table tr.alt {}
     div.solution-box table tr td {}
+    /** /
+    FREQUENCY COUNTER
+    /**/
+    div.freq-box {}
+    div.freq-box h2 {}
+    div.freq-box table {}
+    div.freq-box table tr th {}
+    div.freq-box table tr {}
+    div.freq-box table tr td {}
+    /** /
+    FOOTER
+    /**/
+    footer {}
+    footer span {}
+    footer span.right {}
+    footer span a {}
+    footer span a:hover {}
 }
 @media only screen and (min-width: 1740px) {
     /* Desktop screens: */
@@ -304,4 +434,21 @@ div.solution-box table tr td {
     div.solution-box table tr {}
     div.solution-box table tr.alt {}
     div.solution-box table tr td {}
+    /** /
+    FREQUENCY COUNTER
+    /**/
+    div.freq-box {}
+    div.freq-box h2 {}
+    div.freq-box table {}
+    div.freq-box table tr th {}
+    div.freq-box table tr {}
+    div.freq-box table tr td {}
+    /** /
+    FOOTER
+    /**/
+    footer {}
+    footer span {}
+    footer span.right {}
+    footer span a {}
+    footer span a:hover {}
 }
