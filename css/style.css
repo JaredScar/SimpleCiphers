@@ -41,7 +41,9 @@ div.cipher-desc p {
     padding: 8px;
     line-height: 22px;
 }
-
+/** /
+SETTINGS BLOCK
+/**/
 div.block {}
 div.settings {
     text-align: center;
@@ -81,8 +83,30 @@ div.input-block input, div.input-block textarea {
     text-align: center;
 }
 /** /
-1st BLOCK
+SOLUTIONS BLOCK
 /**/
+div.solution-box {
+    height: 300px;
+    overflow-y: scroll;
+}
+div.solution-box h2 {}
+div.solution-box table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+div.solution-box table tr th {
+    background-color: #c3c3c3;
+    text-align: center;
+}
+div.solution-box table tr {}
+div.solution-box table tr.alt {
+    background-color: #e3e3e3;
+}
+div.solution-box table tr td {
+    padding: 8px;
+    text-align: center;
+}
 @media only screen and (min-width: 667px) {
     /* For iPhone 6+++ landscape mode: */
     /** /
@@ -106,6 +130,15 @@ div.input-block input, div.input-block textarea {
     div.input-block span {}
     div.input-block input {}
     div.input-block textarea {}
+    /** /
+    SOLUTIONS BLOCK
+    /**/
+    div.solution-box {}
+    div.solution-box h2 {}
+    div.solution-box table {}
+    div.solution-box table tr {}
+    div.solution-box table tr.alt {}
+    div.solution-box table tr td {}
 }
 @media only screen and (min-width: 768px) {
     /* For tablets: */
@@ -130,6 +163,15 @@ div.input-block input, div.input-block textarea {
     div.input-block span {}
     div.input-block input {}
     div.input-block textarea {}
+    /** /
+    SOLUTIONS BLOCK
+    /**/
+    div.solution-box {}
+    div.solution-box h2 {}
+    div.solution-box table {}
+    div.solution-box table tr {}
+    div.solution-box table tr.alt {}
+    div.solution-box table tr td {}
 }
 @media only screen and (min-width: 1024px) {
     /* iPad Pros:  */
@@ -154,6 +196,15 @@ div.input-block input, div.input-block textarea {
     div.input-block span {}
     div.input-block input {}
     div.input-block textarea {}
+    /** /
+    SOLUTIONS BLOCK
+    /**/
+    div.solution-box {}
+    div.solution-box h2 {}
+    div.solution-box table {}
+    div.solution-box table tr {}
+    div.solution-box table tr.alt {}
+    div.solution-box table tr td {}
 }
 @media only screen and (min-width: 1366px) {
     /* Desktop screens and iPad pro sideways: */
@@ -178,6 +229,15 @@ div.input-block input, div.input-block textarea {
     div.input-block span {}
     div.input-block input {}
     div.input-block textarea {}
+    /** /
+    SOLUTIONS BLOCK
+    /**/
+    div.solution-box {}
+    div.solution-box h2 {}
+    div.solution-box table {}
+    div.solution-box table tr {}
+    div.solution-box table tr.alt {}
+    div.solution-box table tr td {}
 }
 @media only screen and (min-width: 1500px) {
     /* Desktop screens 1500px - 1740px : */
@@ -202,6 +262,15 @@ div.input-block input, div.input-block textarea {
     div.input-block span {}
     div.input-block input {}
     div.input-block textarea {}
+    /** /
+    SOLUTIONS BLOCK
+    /**/
+    div.solution-box {}
+    div.solution-box h2 {}
+    div.solution-box table {}
+    div.solution-box table tr {}
+    div.solution-box table tr.alt {}
+    div.solution-box table tr td {}
 }
 @media only screen and (min-width: 1740px) {
     /* Desktop screens: */
@@ -226,4 +295,13 @@ div.input-block input, div.input-block textarea {
     div.input-block span {}
     div.input-block input {}
     div.input-block textarea {}
+    /** /
+    SOLUTIONS BLOCK
+    /**/
+    div.solution-box {}
+    div.solution-box h2 {}
+    div.solution-box table {}
+    div.solution-box table tr {}
+    div.solution-box table tr.alt {}
+    div.solution-box table tr td {}
 }

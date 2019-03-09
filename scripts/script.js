@@ -52,6 +52,23 @@ function load() {
             $('#decrypt-btn').attr('onclick', 'decryptCaesar();');
     }
 }
+var alt = 1;
+function addToTable(key, value) {
+    if(alt === 1) {
+        alt = 0;
+        $('#solutions tbody tr:last').after('<tr><td>' + key + '</td><td>' + value + '</td></tr>');
+    } else {
+        alt = 1;
+        $('#solutions tbody tr:last').after('<tr class="alt"><td>' + key + '</td><td>' + value + '</td></tr>');
+    }
+    if($('#solutions tbody').children().length == 0) {
+        alt = 0;
+        $('#solutions tbody').append('<tr><td>' + key + '</td><td>' + value + '</td></tr>');
+    }
+}
+function clearTable() {
+    $('#solutions tbody').empty();
+}
 
 /* Useful Variables */
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -154,7 +171,8 @@ function decryptCaesar() {
                 message += text[i];
             }
         }
-        textBox.val(message);
+        clearTable();
+        addToTable(shift, message);
     }
 }
 function decryptRail() {
@@ -179,7 +197,7 @@ function decryptRail() {
     }
     // Place the letters in the array spots:
     // [row][col]
-    //TODO
+    // TODO
 }
 function decryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
@@ -209,7 +227,8 @@ function decryptVigenere() {
             msg += text[i];
         }
     }
-    textBox.val(msg);
+    clearTable();
+    addToTable(keyword, msg);
 }
 function decryptSubstitution() {
     map = new Map();
@@ -229,7 +248,8 @@ function decryptSubstitution() {
             msg += text[i];
         }
     }
-    textBox.val(msg);
+    clearTable();
+    addToTable(keyAlpha, msg);
 }
 
 /* Encrypt */
@@ -263,10 +283,11 @@ function encryptCaesar() {
 function encryptRail() {
     var textBox = $('#text-input');
     var text = textBox.val().toUpperCase();
-    var railCount = parseInt($('#num-rails').val());
+    var railCount = $('#num-rails').val();
     if(railCount.length <= 0) {
-        railCount = getRandomInt(0, 100);
-        $('#num-rails').val(railCount);
+        railCount = getRandomInt(0, text.length);
+    } else {
+        railCount = parseInt(railCount);
     }
     var currentRow = 0;
     var textInd = 0;
@@ -307,6 +328,7 @@ function encryptRail() {
         }
         msg += " ";
     }
+    $('#num-rails').val(railCount);
     textBox.val(msg);
 }
 function encryptVigenere() {
