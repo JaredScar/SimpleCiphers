@@ -197,8 +197,69 @@ function decryptRail() {
             spacedBy = railCount + 1;
     }
     // Place the letters in the array spots:
+    var textInd = 0;
+    var currentRow = 0;
+    var currentCol = 0;
+    var goingUp = false;
     // [row][col]
-    // TODO
+    while(textInd < text.length) {
+        if(alphabet.includes(text[textInd])) {
+            multiD[currentRow][currentCol] = 0;
+            currentCol++;
+            textInd++;
+            if (currentRow === railCount - 1 || goingUp) {
+                currentRow -= 1;
+                goingUp = true;
+                if (currentRow === -1) {
+                    currentRow = 1;
+                    goingUp = false;
+                }
+            } else {
+                currentRow++;
+            }
+        } else {
+            textInd++;
+        }
+    }
+    textInd = 0;
+    for(var i=0; i<multiD.length; i++) {
+        if(!alphabet.includes(text[textInd])) {
+            textInd++;
+        }
+        for(var j=0; j<multiD[i].length; j++) {
+            if(multiD[i][j] === 0) {
+                multiD[i][j] = text[textInd];
+                textInd++;
+            }
+        }
+    }
+    textInd = 0;
+    currentCol = 0;
+    currentRow = 0;
+    goingUp = false;
+    var msg = "";
+    while(textInd < text.length) {
+        if(alphabet.includes(text[textInd])) {
+            if(alphabet.includes(multiD[currentRow][currentCol]))
+                msg += multiD[currentRow][currentCol];
+            currentCol++;
+            textInd++;
+            if (currentRow === railCount - 1 || goingUp) {
+                currentRow -= 1;
+                goingUp = true;
+                if (currentRow === -1) {
+                    currentRow = 1;
+                    goingUp = false;
+                }
+            } else {
+                currentRow++;
+            }
+        } else {
+            textInd++;
+        }
+    }
+    clearTable();
+    addToTable(railCount, msg);
 }
 function decryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
