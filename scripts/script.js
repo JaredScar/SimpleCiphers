@@ -106,6 +106,20 @@ var map = new Map();
 /* BruteForce */
 function bruteForce() {
     var selected = $('#select-cipher option:selected').text();
+    switch (selected) {
+        case "Caesar Cipher":
+            //
+            break;
+        case "Rail-Fence Cipher":
+            //
+            break;
+        case "Vigenère Cipher":
+            //
+            break;
+        case "Substitution Cipher":
+            //
+            break;
+    }
 }
 /* Frequency Count */
 function freqCount() {
