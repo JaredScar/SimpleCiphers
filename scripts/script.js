@@ -104,7 +104,28 @@ var genTable = {
 var map = new Map();
 
 /* BruteForce */
-function bruteForce() {}
+function bruteForce() {
+    var selected = $('#select-cipher option:selected').text();
+}
+/* Frequency Count */
+function freqCount() {
+    var counts = $('#counts').children(); // .eq(num) to get nth child
+    var text = $('#text-input').val().toUpperCase();
+    for(var i=0; i<text.length; i++) {
+        if(alphabet.includes(text[i])) {
+            var ind = getIndexOfLetter(text[i]);
+            var currentVal = parseInt(counts.eq(ind).text());
+            counts.eq(ind).text(currentVal + 1);
+        }
+    }
+}
+function freqReset() {
+    var counts = $('#counts').children(); // .eq(num) to get nth child
+    var text = $('#text-input').val().toUpperCase();
+    for(var i=0; i<25; i++) {
+        counts.eq(i).text(0);
+    }
+}
 
 /* Useful Functions */
 function getRandomInt(min, max) {
@@ -174,6 +195,9 @@ function decryptCaesar() {
         }
         clearTable();
         addToTable(shift, message);
+        // Frequency
+        freqReset();
+        freqCount();
     }
 }
 function decryptRail() {
@@ -260,6 +284,9 @@ function decryptRail() {
     }
     clearTable();
     addToTable(railCount, msg);
+    // Frequency
+    freqReset();
+    freqCount();
 }
 function decryptVigenere() {
     var keyword = $('#keyword').val().toUpperCase();
@@ -291,6 +318,9 @@ function decryptVigenere() {
     }
     clearTable();
     addToTable(keyword, msg);
+    // Frequency
+    freqReset();
+    freqCount();
 }
 function decryptSubstitution() {
     map = new Map();
@@ -312,6 +342,9 @@ function decryptSubstitution() {
     }
     clearTable();
     addToTable(keyAlpha, msg);
+    // Frequency
+    freqReset();
+    freqCount();
 }
 
 /* Encrypt */
