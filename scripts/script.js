@@ -106,18 +106,19 @@ var map = new Map();
 /* BruteForce */
 function bruteForce() {
     var selected = $('#select-cipher option:selected').text();
+    var text = $('#text-input').toUpperCase();
     switch (selected) {
         case "Caesar Cipher":
-            //
+            var shiftStr = $('#num-shifts');
             break;
         case "Rail-Fence Cipher":
-            //
+            var railsStr = $('#num-rails');
             break;
         case "Vigenère Cipher":
-            //
+            var keyword = $('#keyword').toUpperCase();
             break;
         case "Substitution Cipher":
-            //
+            var key = $('#key').toUpperCase();
             break;
     }
 }
