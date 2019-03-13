@@ -106,21 +106,125 @@ var map = new Map();
 /* BruteForce */
 function bruteForce() {
     var selected = $('#select-cipher option:selected').text();
-    var text = $('#text-input').toUpperCase();
+    var text = $('#text-input').val().toUpperCase();
+    clearTable();
+    freqReset();
     switch (selected) {
         case "Caesar Cipher":
-            var shiftStr = $('#num-shifts');
+            $('#num-shifts').val("");
+            var message = "";
+            var shift = 1;
+            while(shift < 27) {
+                for (var i = 0; i < text.length; i++) {
+                    if (alphabet.includes(text[i])) {
+                        var newLetterIn = getIndexOfLetter(text[i]) - shift;
+                        while (newLetterIn < 0) {
+                            newLetterIn += 25;
+                        }
+                        message += alphabet[newLetterIn];
+                    } else {
+                        message += text[i];
+                    }
+                }
+                addToTable(shift, message);
+                message = "";
+                shift++;
+            }
             break;
         case "Rail-Fence Cipher":
-            var railsStr = $('#num-rails');
+            $('#num-rails').val("");
+            var railCount = 2;
+            while(railCount < getLengthNoSpaces($('#text-input').val().toUpperCase())) {
+                var multiD = new Array(railCount);
+                var spacedBy = 0;
+                var textLength = getLengthNoSpaces(text);
+                for(var i=0; i<multiD.length; i++) {
+                    multiD[i] = new Array(textLength);
+                }
+                switch (railCount) {
+                    case 2:
+                        spacedBy = 1;
+                        break;
+                    case 3:
+                        spacedBy = 3;
+                        break;
+                    default:
+                        spacedBy = railCount + 1;
+                }
+                // Place the letters in the array spots:
+                var textInd = 0;
+                var currentRow = 0;
+                var currentCol = 0;
+                var goingUp = false;
+                // [row][col]
+                while(textInd < text.length) {
+                    if(alphabet.includes(text[textInd])) {
+                        multiD[currentRow][currentCol] = 0;
+                        currentCol++;
+                        textInd++;
+                        if (currentRow === railCount - 1 || goingUp) {
+                            currentRow -= 1;
+                            goingUp = true;
+                            if (currentRow === -1) {
+                                currentRow = 1;
+                                goingUp = false;
+                            }
+                        } else {
+                            currentRow++;
+                        }
+                    } else {
+                        textInd++;
+                    }
+                }
+                textInd = 0;
+                for(var i=0; i<multiD.length; i++) {
+                    if(!alphabet.includes(text[textInd])) {
+                        textInd++;
+                    }
+                    for(var j=0; j<multiD[i].length; j++) {
+                        if(multiD[i][j] === 0) {
+                            multiD[i][j] = text[textInd];
+                            textInd++;
+                        }
+                    }
+                }
+                textInd = 0;
+                currentCol = 0;
+                currentRow = 0;
+                goingUp = false;
+                var msg = "";
+                while(textInd < text.length) {
+                    if (alphabet.includes(text[textInd])) {
+                        if (alphabet.includes(multiD[currentRow][currentCol]))
+                            msg += multiD[currentRow][currentCol];
+                        currentCol++;
+                        textInd++;
+                        if (currentRow === railCount - 1 || goingUp) {
+                            currentRow -= 1;
+                            goingUp = true;
+                            if (currentRow === -1) {
+                                currentRow = 1;
+                                goingUp = false;
+                            }
+                        } else {
+                            currentRow++;
+                        }
+                    } else {
+                        textInd++;
+                    }
+                }
+                addToTable(railCount, msg);
+                railCount++;
+            }
             break;
         case "Vigenère Cipher":
-            var keyword = $('#keyword').toUpperCase();
+            var keyword = $('#keyword').val().toUpperCase();
             break;
         case "Substitution Cipher":
-            var key = $('#key').toUpperCase();
+            var key = $('#key').val().toUpperCase();
             break;
     }
+    freqCount();
 }
 /* Frequency Count */
 function freqCount() {
