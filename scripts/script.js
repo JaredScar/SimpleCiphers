@@ -108,7 +108,6 @@ function bruteForce() {
     var selected = $('#select-cipher option:selected').text();
     var text = $('#text-input').val().toUpperCase();
     clearTable();
-    freqReset();
     switch (selected) {
         case "Caesar Cipher":
             $('#num-shifts').val("");
@@ -219,11 +218,26 @@ function bruteForce() {
             break;
         case "Vigenère Cipher":
             var keyword = $('#keyword').val().toUpperCase();
+            if(keyword.length === 0) {
+                alert("The Vigenère Cipher is too complex to be solved by a computer unless the keyword is known." +
+                    " The frequency of letters has been provided below. Best of luck decoding :)");
+            } else {
+                decryptVigenere();
+            }
             break;
         case "Substitution Cipher":
             var key = $('#key').val().toUpperCase();
+            if(key.length === 0) {
+                alert("The Substitution Cipher is too complex to be solved by a computer without knowing the substituted " +
+                    "alphabet for the encrypted message. Most computers can decrypt these ciphers by knowing some of the " +
+                    "substituted alphabet (not this program though). The frequency of letters has been provided below. " +
+                    "Best of luck decoding :)");
+            } else {
+                decryptSubstitution();
+            }
             break;
     }
+    freqReset();
     freqCount();
 }
 /* Frequency Count */
