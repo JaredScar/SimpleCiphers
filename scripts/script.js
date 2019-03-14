@@ -118,7 +118,7 @@ function bruteForce() {
                     if (alphabet.includes(text[i])) {
                         var newLetterIn = getIndexOfLetter(text[i]) - shift;
                         while (newLetterIn < 0) {
-                            newLetterIn += 25;
+                            newLetterIn += 26;
                         }
                         message += alphabet[newLetterIn];
                     } else {
@@ -255,7 +255,7 @@ function freqCount() {
 function freqReset() {
     var counts = $('#counts').children(); // .eq(num) to get nth child
     var text = $('#text-input').val().toUpperCase();
-    for(var i=0; i<25; i++) {
+    for(var i=0; i<26; i++) {
         counts.eq(i).text(0);
     }
 }
@@ -319,7 +319,7 @@ function decryptCaesar() {
             if(alphabet.includes(text[i])) {
                 var newLetterIn = getIndexOfLetter(text[i]) - shift;
                 while (newLetterIn < 0) {
-                    newLetterIn += 25;
+                    newLetterIn += 26;
                 }
                 message += alphabet[newLetterIn];
             } else {
@@ -497,9 +497,10 @@ function encryptCaesar() {
         if(alphabet.includes(text[i])) {
             var letterIndex = getIndexOfLetter(text[i]);
             var newLetter = letterIndex + shift;
-            while(newLetter > 25) {
-                newLetter -= 25;
+            while(newLetter >= 26) {
+                newLetter -= 26;
             }
+            console.log(newLetter);
             message += alphabet[newLetter];
         } else {
             message += " ";
