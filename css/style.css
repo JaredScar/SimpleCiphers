@@ -8,6 +8,7 @@ div.container {
     margin-left: 10px;
     margin-right: 10px;
 }
+div.block h2 {}
 /** /
 SUMMARY BLOCK
 /**/
@@ -91,7 +92,6 @@ div.solution-box {
     height: 300px;
     overflow-y: scroll;
 }
-div.solution-box h2 {}
 div.solution-box table {
     background-color: white;
     border-collapse: collapse;
@@ -115,7 +115,6 @@ FREQUENCY COUNTER
 div.freq-box {
     overflow-x: scroll;
 }
-div.freq-box h2 {}
 div.freq-box table {
     text-align: center;
 }
@@ -204,6 +203,11 @@ footer span a:hover {
 }
 @media only screen and (min-width: 768px) {
     /* For tablets: */
+    div.block {
+        display: inline-block;
+        width: 360px;
+        vertical-align: top;
+    }
     /** /
     SUMMARY BLOCK
     /**/
@@ -216,7 +220,6 @@ footer span a:hover {
     div.cipher-desc {}
     div.cipher-desc h2 {}
     div.cipher-desc p {}
-    div.block {}
     div.settings {}
     div.settings select {}
     div.settings button {}
@@ -237,7 +240,9 @@ footer span a:hover {
     /** /
     FREQUENCY COUNTER
     /**/
-    div.freq-box {}
+    div.freq-box {
+        width: 700px;
+    }
     div.freq-box h2 {}
     div.freq-box table {}
     div.freq-box table tr th {}
