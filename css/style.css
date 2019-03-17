@@ -205,7 +205,7 @@ footer span a:hover {
     /* For tablets: */
     div.block {
         display: inline-block;
-        width: 360px;
+        width: 370px;
         vertical-align: top;
     }
     /** /
@@ -231,7 +231,9 @@ footer span a:hover {
     /** /
     SOLUTIONS BLOCK
     /**/
-    div.solution-box {}
+    div.solution-box {
+        height: 320px;
+    }
     div.solution-box h2 {}
     div.solution-box table {}
     div.solution-box table tr {}
