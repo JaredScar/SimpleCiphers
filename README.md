@@ -5,13 +5,6 @@ SimpleCiphers was a site designed to show how a few ciphers work in encrypting m
 The site was made for Sister Jane Fritz's COM 260 Computer & Info Security class.
 # Site
 http://simpleciphers.tk
-# Features
-## Bruteforce
-TBD
-## Cipher Encrypting
-TBD
-## Cipher Decrypting
-TBD
 # Included Ciphers
 ## Caesar Cipher
 The Caesar cipher is one of the simplest and most widely known encryption techniques. It is a cipher in which uses a shift to encrypt its messages. For instance, a right shift of 3 would make any "A"s in the message a "D". The Caesar cipher was used by Julius Caesar (whom it is also named after) in his private correspondence. The Caesar cipher in modern practice is easily broken and offers no communications security. The key to this cipher is to know how much to shift. There is only 25 possible shifts, therefore it's quite simple for a modern day computer to figure out in milliseconds...
