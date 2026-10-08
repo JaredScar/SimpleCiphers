@@ -1,23 +1,92 @@
-# SimpleCiphers
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/TheWolfBadger/SimpleCiphers/blob/master/LICENSE)
+# Simple Ciphers
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/JaredScar/SimpleCiphers/blob/master/LICENSE)
 
-SimpleCiphers was a site designed to show how a few ciphers work in encrypting messages and decrypting encrypted messages.
-The site was made for Sister Jane Fritz's COM 260 Computer & Info Security class.
-# Site
-http://simpleciphers.tk
-# Features
-## Bruteforce
-TBD
-## Cipher Encrypting
-TBD
-## Cipher Decrypting
-TBD
-# Included Ciphers
-## Caesar Cipher
-The Caesar cipher is one of the simplest and most widely known encryption techniques. It is a cipher in which uses a shift to encrypt its messages. For instance, a right shift of 3 would make any "A"s in the message a "D". The Caesar cipher was used by Julius Caesar (whom it is also named after) in his private correspondence. The Caesar cipher in modern practice is easily broken and offers no communications security. The key to this cipher is to know how much to shift. There is only 25 possible shifts, therefore it's quite simple for a modern day computer to figure out in milliseconds...
-## Rail-Fence Cipher
-The Rail-Fence cipher (sometimes referred to as the zigzag cipher) is a form of a transposition cipher. The name comes from the way in which the encryption of it's messages are encoded. The letters of the messages are written in zigzags up and down an X amount of rows and each row is part of the final encryption scheme. The key to figuring out the encrypted message is by knowing how many rails (rows) there are. The amount of rails will always be higher than 2, but no more than the number of letters in the encrypted text. This cipher is therefore not very strong and can be solved by hand...
-## Vigenère Cipher
-The Vigenère cipher is a technique of encrypting messages by using a series of interwoven Caesar ciphers, based on the letters of a keyword. This cipher is easy to understand and implement, but it also resisted all attempts to break it for three centuries...The cipher stood strong until 1863 when a man by the name of Friedrich Kasiski was the first to publish a successful attack on it. Kasiski had noticed that he could take advantage of the fact that repeated words are, by chance, sometimes encrypted using the same key letters, thus leading to repeated groups in the encrypted messages. By counting the distance between the repetitions of a group of encrypted message, Kasiski realized that this could imply the key length that the encryption had used. The Vigenère cipher, with normal alphabets, essentially uses modulo arithmetic, which is commutative. Therefore, if the key length is known (or guessed), subtracting the cipher text from itself, offset by the key length, will produce the plain text encrypted with itself. If any "probable word" in the plain text is known or can be guessed, its self-encryption can be recognized, which allows recovery of the key by subtracting the known plaintext from the cipher text. Key elimination is especially useful against short messages.
-## Substitution Cipher
-A Substitution cipher is a technique of encrypting messages by substituting the letters of a message with a different value. We will be focusing on the simple substitution cipher in which the letters of a message are replaced by a single different letter. For instance, setting A to Z, B to F, G to I, etc. These are completely random and have no "shift" and/or 1 single key. Instead, this cipher requires a full-out key to be correctly solved in which you need the key to each single letter to decipher the message encrypted. This cipher is still not very strong and is easily broken in modern day practice. The most common deduction to this problem is analyzing the frequency distribution of the encrypted message. This allows formation of partial words and therefore can in-turn gain the hacker more words by using the somewhat filled key.
+**Live site:** [https://jaredscar.github.io/SimpleCiphers/](https://jaredscar.github.io/SimpleCiphers/)
+
+Simple Ciphers is a browser bench for four classical ciphers, made for Sister Jane Fritz’s COM 260 Computer & Information Security class. Encrypt a message, decrypt it with the key, or brute-force the ciphers a computer can finish in a blink. The work stays in the browser. GitHub Pages publishes the `master` branch.
+
+![Simple Ciphers homepage, with a Vigenère specimen beside the headline](docs/media/hero.png)
+
+## Open it
+
+Open `index.html` in a browser, or serve the folder:
+
+```bash
+python -m http.server
+```
+
+The class site was originally published at [simpleciphers.tk](http://simpleciphers.tk).
+
+## The bench
+
+Pick a cipher, set the key, and the live preview updates as you type. Letters are transformed. Spaces and punctuation stay put, except on the rail fence, which drops them before the zigzag is written.
+
+![Caesar cipher encrypting MEET ME AT THE FORUM with a shift of 3](docs/media/bench.png)
+
+### Encrypt and decrypt
+
+**Encrypt** runs the cipher forward. **Decrypt** runs it backward with the key in the box. **Move into message** copies a result into the message box so you can crack what you just encrypted. **Use example** loads a known plaintext and key for the cipher you have selected.
+
+### Brute force
+
+Caesar has 25 useful shifts. The rail fence has one rail count to find. Both can be searched outright. The readable English row is the plaintext.
+
+![Brute-forcing the Caesar ciphertext PHHW PH DW WKH IRUXP back to MEET ME AT THE FORUM](docs/media/caesar-crack.gif)
+
+Vigenère repeats a keyword under the plaintext. The bench decrypts it when you already know the keyword. It does not search every possible word.
+
+![Encrypting ATTACK AT DAWN with the Vigenère keyword LEMON](docs/media/vigenere.gif)
+
+A simple substitution needs the full 26-letter alphabet. Leave the key blank and Encrypt invents a reversible one. There are 26 factorial possible alphabets, so this bench will not search them.
+
+### Rail fence
+
+Letters zigzag down the rails, then each rail is read left to right. The preview draws that path before you encrypt.
+
+![Rail-fence preview of WE ARE DISCOVERED FLEE AT ONCE on 3 rails](docs/media/rail.png)
+
+### Letter frequency
+
+Pine bars are this message. Copper ticks are typical English. A real English sentence piles up near E, T, A, O, I, and N. A Caesar shift slides that shape along the alphabet. A substitution keeps the shape and parks it on the wrong letters.
+
+![Letter frequency of a short English passage compared with typical English](docs/media/frequency.png)
+
+### On a phone
+
+The same bench stacks on a narrow screen. Results sit under the buttons you just pressed.
+
+![Simple Ciphers on a phone](docs/media/mobile.png)
+
+![A Caesar result on a phone, ciphertext PHHW PH DW WKH IRUXP](docs/media/mobile-bench.png)
+
+## Included ciphers
+
+![The four cipher cards: Caesar, rail fence, Vigenère, and substitution](docs/media/ciphers.png)
+
+### Caesar cipher
+
+The Caesar cipher is one of the simplest and most widely known encryption techniques. It shifts every letter by the same amount. A right shift of 3 turns each A into D. Julius Caesar used it in private correspondence, which is where the name comes from. The key is the size of the shift. There are only 25 useful shifts, so a computer can try them all in milliseconds. In modern practice it offers no communications security.
+
+### Rail-fence cipher
+
+The rail-fence cipher, sometimes called the zigzag cipher, is a transposition cipher. The name comes from the path the letters take: up and down a set of rails, then each rail is read across. The key is the number of rails. It has to be at least 2, and no more than the number of letters. That is a small search, so the cipher is weak enough to solve by hand.
+
+### Vigenère cipher
+
+The Vigenère cipher weaves several Caesar ciphers together, one for each letter of a keyword. It is easy to understand, and it resisted a clean public attack for about three centuries. In 1863 Friedrich Kasiski published one. Repeated words are sometimes encrypted by the same key letters, which leaves repeated groups in the ciphertext. The distance between those groups suggests the key length.
+
+With a normal alphabet the math is commutative. If the key length is known, or guessed, subtracting the ciphertext from itself at that offset peels the key away. A probable word in the plaintext makes that easier, and short messages give the attack more to hold onto. Brute-forcing the keyword itself is a different problem. This bench decrypts Vigenère only when the keyword is already known.
+
+### Substitution cipher
+
+A simple substitution cipher replaces every letter with one other letter: A might become Q, B might become W, and so on. There is no single shift. The key is the whole alphabet, and you need every letter of it to reverse the message. The cipher is still weak. English letters do not appear equally often.
+
+The usual attack is frequency analysis. Guess the common letters, form partial words, and the rest of the key starts to give way. The chart on the bench is there for that comparison.
+
+## Privacy
+
+Messages, keywords, and alphabet keys are processed locally. The page has no account, no analytics, and no ads. Typefaces load from Google Fonts, so that request shares an IP address with Google. Details are in [privacy.html](privacy.html).
+
+## License
+
+[MIT](https://github.com/JaredScar/SimpleCiphers/blob/master/LICENSE)
