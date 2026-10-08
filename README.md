@@ -1,5 +1,5 @@
 # Simple Ciphers
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/JaredScar/SimpleCiphers/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/JaredScar/SimpleCiphers.svg)](LICENSE)
 
 **Live site:** [https://jaredscar.github.io/SimpleCiphers/](https://jaredscar.github.io/SimpleCiphers/)
 
@@ -89,4 +89,4 @@ Messages, keywords, and alphabet keys are processed locally. The page has no acc
 
 ## License
 
-[MIT](https://github.com/JaredScar/SimpleCiphers/blob/master/LICENSE)
+[MIT](LICENSE)
